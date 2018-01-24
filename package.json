@@ -1,0 +1,25 @@
+{
+  "name": "login-v5",
+  "version": "1.0.0",
+  "description": "newest version of login app, using Mongo, Express, EJS, and Node.  MEEN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanejtucker/login-v5.git"
+  },
+  "author": "Evan E J Tucker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evanejtucker/login-v5/issues"
+  },
+  "homepage": "https://github.com/evanejtucker/login-v5#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.1"
+  }
+}
