@@ -5,9 +5,11 @@ const port = process.env.PORT || 3000;
 const main = require('./app/routes/main.js');
 const profile = require('./app/routes/profile.js');
 const mongoose = require('mongoose');
+const path = require('path');
 
 // middleware
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('./app/public'));
 
 // mongoose
