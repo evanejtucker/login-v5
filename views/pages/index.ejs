@@ -9,11 +9,13 @@
       <h2>Welcome <%= name %>!</h2>
       <div class='row'>
         <div class='col-12 col-md-4'>
-          <form action="/" method="post">
+          <form action="/login" method="POST">
             <h4>Log In</h4>
-            <input type="text" name="username" placeholder="username" id="username">
-            <input type="password" name="password" placeholder="password" id="password">
-            <button type="submit" id="submitBtn">Log In</button>
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" placeholder="username" id="username">
+              <input type="password" class="form-control" name="password" placeholder="password" id="password">
+              <input type="submit" value='login' id="submitBtn">
+            </div>
           </form>
           <a href='#' data-toggle="modal" data-target="#exampleModal">New Account</a>
         </div>
@@ -37,14 +39,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/" method="post" id="newUserForm">
+        <form action="/addUser" method="post" id="newUserForm">
           <input type='text' name='firstName' placeholder='First Name' id='firstName'>
           <input type='text' name='lastName' placeholder='Last Name' id='lastName'>
           <input type='text' name='newUsername' placeholder='Username' id='newUsername'>
           <input type='password' name='newPswd' placeholder='Password' id='newPswd'>
           <input type='password' name='confirmPswd' placeholder='Confirm Password' id='confirmPswd'>
-          <input type='email' name='email' placeholder='Email' id='email'>
-          <button type="submit" id="submitUser">Create</button
+          <input type='text' name='email' placeholder='Email' id='email'>
+          <input type="submit" value="create" id="submitUser">
         </form>
       </div>
     </div>

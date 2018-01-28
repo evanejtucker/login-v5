@@ -7,11 +7,16 @@ const profile = require('./app/routes/profile.js');
 const mongoose = require('mongoose');
 const User = require('./app/models/Users.js');
 const path = require('path');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 // middleware
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('./app/public'));
+app.use(morgan('tiny'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 // mongoose
 mongoose.connect('mongodb://localhost/login-v5');

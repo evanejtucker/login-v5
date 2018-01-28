@@ -3,12 +3,20 @@ var router = express.Router()
 
 
 // define the home page route
-router.get('/', function (req, res) {
+router.get('/', (req, res, next)=> {
   res.render('pages/index.ejs', {name: 'Evan'});
 });
 // define the about route
-router.get('/about', function (req, res) {
+router.get('/about', (req, res, next)=> {
   res.send('About page')
 });
 
-module.exports = router
+router.post('/addUser', (req, res, next)=> {
+  res.send(req);
+});
+
+router.post('/login', (req, res, next)=> {
+  res.send(req);
+});
+
+module.exports = router;
