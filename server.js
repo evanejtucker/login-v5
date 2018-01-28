@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 const main = require('./app/routes/main.js');
 const profile = require('./app/routes/profile.js');
 const mongoose = require('mongoose');
+const User = require('./app/models/Users.js');
 const path = require('path');
 
 // middleware

@@ -7,9 +7,46 @@
 
     <div class="container">
       <h2>Welcome <%= name %>!</h2>
+      <div class='row'>
+        <div class='col-12 col-md-4'>
+          <form action="/" method="post">
+            <h4>Log In</h4>
+            <input type="text" name="username" placeholder="username" id="username">
+            <input type="password" name="password" placeholder="password" id="password">
+            <button type="submit" id="submitBtn">Log In</button>
+          </form>
+          <a href='#' data-toggle="modal" data-target="#exampleModal">New Account</a>
+        </div>
+      </div>
     </div>
 
     
     <% include ../partials/scriptTags %> 
+
   </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/" method="post" id="newUserForm">
+          <input type='text' name='firstName' placeholder='First Name' id='firstName'>
+          <input type='text' name='lastName' placeholder='Last Name' id='lastName'>
+          <input type='text' name='newUsername' placeholder='Username' id='newUsername'>
+          <input type='password' name='newPswd' placeholder='Password' id='newPswd'>
+          <input type='password' name='confirmPswd' placeholder='Confirm Password' id='confirmPswd'>
+          <input type='email' name='email' placeholder='Email' id='email'>
+          <button type="submit" id="submitUser">Create</button
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
