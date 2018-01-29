@@ -11,12 +11,13 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 // middleware
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('./app/public'));
 app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
+
+app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
 
 // mongoose
 mongoose.connect('mongodb://localhost/login-v5');

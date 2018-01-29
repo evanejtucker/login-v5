@@ -7,48 +7,61 @@
 
     <div class="container">
       <h2>Welcome <%= name %>!</h2>
-      <div class='row'>
-        <div class='col-12 col-md-4'>
-          <form action="/login" method="POST">
-            <h4>Log In</h4>
-            <div class="form-group">
-              <input type="text" class="form-control" name="username" placeholder="username" id="username">
-              <input type="password" class="form-control" name="password" placeholder="password" id="password">
-              <input type="submit" value='login' id="submitBtn">
-            </div>
-          </form>
-          <a href='#' data-toggle="modal" data-target="#exampleModal">New Account</a>
+      <form action="/login" method="post">
+        <div>
+          <input type="text" name="username" placeholder='Username:'/>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder='password'/>
+        </div>
+        <div>
+            <input type="submit" value="Log In"/>
+        </div>
+      </form>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Create New Account
+      </button>
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/newUser" method="post">
+              <div>
+                <input type="text" name="firstname" placeholder='First Name'/>
+                <input type="text" name="lastname" placeholder='Last Name'/>
+              </div>
+              <div>
+                <input type="text" name="newUsername" placeholder='Username'/>
+              </div>
+              <div>
+                  <input type="password" name="newPassword" placeholder='Password'/>
+              </div>
+              <div>
+                  <input type="password" name="confirmPassword" placeholder='Confirm Password'/>
+              </div>
+              <div>
+                  <input type="text" name="email" placeholder='Email:'/>
+              </div>
+              <div>
+                  <input type="submit" value="Log In"/>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-
     
+    <%# Script Tags%>
     <% include ../partials/scriptTags %> 
-
   </body>
 </html>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create New Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/addUser" method="post" id="newUserForm">
-          <input type='text' name='firstName' placeholder='First Name' id='firstName'>
-          <input type='text' name='lastName' placeholder='Last Name' id='lastName'>
-          <input type='text' name='newUsername' placeholder='Username' id='newUsername'>
-          <input type='password' name='newPswd' placeholder='Password' id='newPswd'>
-          <input type='password' name='confirmPswd' placeholder='Confirm Password' id='confirmPswd'>
-          <input type='text' name='email' placeholder='Email' id='email'>
-          <input type="submit" value="create" id="submitUser">
-        </form>
-      </div>
-    </div>
-  </div>
-</div>

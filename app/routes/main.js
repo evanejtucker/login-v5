@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express.Router()
-
+const express = require('express');
+const router = express.Router();
+const User = require('../models/Users.js');
 
 // define the home page route
 router.get('/', (req, res, next)=> {
@@ -11,12 +11,25 @@ router.get('/about', (req, res, next)=> {
   res.send('About page')
 });
 
-router.post('/addUser', (req, res, next)=> {
-  res.send(req);
+router.post('/login', (req, res, next)=> {
+  console.log(req.body);
+  res.send("hello world");
 });
 
-router.post('/login', (req, res, next)=> {
-  res.send(req);
+router.post('/newUser', (req, res, next)=> {
+  let info = req.body;
+  let newUser = new User({
+    firstname: info.firstname, 
+    lastname: info.lastname,
+    username: info.newUsername,
+    password: info.confirmPassword,
+    email: info.email,
+    admin: false
+  });
+  newUser.save((err, user)=> {
+    console.log(user);
+  });
+  res.send("hello world");
 });
 
 module.exports = router;
