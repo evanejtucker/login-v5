@@ -25,7 +25,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: { secure: false }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,7 +43,7 @@ db.once('open', function() {
 
 // routes
 app.use('/', main);
-app.use('/profile', profile);
+app.use('/profile', auth.isLoggedIn, profile);
 
 app.listen(port, ()=> {
     console.log(`app listening on port ${port}!`)
