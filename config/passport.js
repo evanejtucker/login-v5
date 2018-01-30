@@ -13,20 +13,21 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-passport.use(new LocalStrategy(
-    function(username, password, done) {
+passport.use(new LocalStrategy({
+        passReqToCallback: true
+    }, function(req, username, password, done) {
         User.findOne({ username: username }, function(err, user) {
             if (err) { return done(err); }
             if (!user) {
                 console.log('no user found');
-                return done(null, false);
+                return done(null, false, {message: req.flash('loginMessage', 'Incorrect Username')});
             }
             if (user) {
                 if(user.validPassword(password, user.password)) {
                     console.log('user exists');
                     return done(null, user);
                 } else {
-                    return done(null, false);
+                    return done(null, false, {message: req.flash('loginMessage', 'Incorrect Password')});
                 }
             }
         });

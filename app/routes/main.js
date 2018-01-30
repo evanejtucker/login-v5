@@ -6,7 +6,7 @@ const passport = require('passport');
 
 // define the home page route
 router.get('/', (req, res, next)=> {
-  res.render('pages/index.ejs', {name: 'Evan'});
+  res.render('pages/index.ejs', {name: 'Evan', message: req.flash('loginMessage')});
 });
 // define the about route
 router.get('/about', (req, res, next)=> {

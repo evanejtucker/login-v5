@@ -7,6 +7,7 @@ const profile = require('./app/routes/profile.js');
 const mongoose = require('mongoose');
 const User = require('./app/models/Users.js');
 const path = require('path');
+const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -29,6 +30,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 app.set('view engine', 'ejs');
 
