@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/Users.js');
+const bcrypt = require('bcrypt-nodejs');
 
 // define the home page route
 router.get('/', (req, res, next)=> {
@@ -22,14 +23,15 @@ router.post('/newUser', (req, res, next)=> {
     firstname: info.firstname, 
     lastname: info.lastname,
     username: info.newUsername,
-    password: info.confirmPassword,
+    password: bcrypt.hashSync(info.confirmPassword, bcrypt.genSaltSync(9)),
     email: info.email,
     admin: false
   });
+  
   newUser.save((err, user)=> {
     console.log(user);
   });
-  res.send("hello world");
+  res.redirect("/about");
 });
 
 module.exports = router;
