@@ -12,9 +12,10 @@
         <h2> <%=message%> </h2>
       <%}%>
 
-      <div class='row'>
+      <div class='row' id='loginBox'>
         <div class='col-md-6 offset-md-3'>
           <h1 class='text-center'> Log In</h1>
+          <hr>
           <form action="/login" method="post">
             <div class='form-group'>
               <input type="text" class='form-control' name="username" placeholder='Username:'/>
@@ -25,11 +26,11 @@
             <div class='form-group'>
                 <input type="submit" class='form-control btn btn-primary' value="Log In"/>
             </div>
+            <hr>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+              Create New Account
+            </button>
           </form>
-          <hr>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Create New Account
-          </button>
         </div>
       </div>
     </div>
@@ -39,7 +40,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">New Account</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
