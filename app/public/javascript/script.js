@@ -3,7 +3,8 @@ $(document).ready(()=> {
 
 // Bootstrap Initializers
 // ===========================================================================================================
-
+$('.alert').alert();
+console.log('script is working!');
 
 
 // Global Variables
@@ -15,7 +16,9 @@ $(document).ready(()=> {
 // Functions
 // ===========================================================================================================
 
-
+const log = (message)=> {
+    console.log('hello world ' + message);
+}
 
 
 // Main Process

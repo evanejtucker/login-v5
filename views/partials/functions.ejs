@@ -1,0 +1,12 @@
+
+<%
+    logInfo = function(message) {
+        if(message.length>0) {
+            var messageString = message.toString();
+            var messageArray = messageString.split(', ');
+            console.log(messageArray);
+        } else {
+            console.log('no message');
+        }
+    }
+%>
