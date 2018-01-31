@@ -24,7 +24,6 @@ passport.use(new LocalStrategy({
             }
             if (user) {
                 if(user.validPassword(password, user.password)) {
-                    console.log('user exists');
                     return done(null, user);
                 } else {
                     return done(null, false, {message: req.flash('loginMessage', 'Incorrect Password')});
