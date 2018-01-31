@@ -24,7 +24,7 @@
                 <input type="password" class='form-control' name="password" placeholder='password'/>
             </div>
             <div class='form-group'>
-                <input type="submit" class='form-control btn btn-primary' value="Log In"/>
+                <input type="submit" class='form-control btn btn-success' value="Log In"/>
             </div>
             <hr>
             <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
@@ -47,24 +47,26 @@
           </div>
           <div class="modal-body">
             <form action="/newUser" method="post">
-              <div>
-                <input type="text" name="firstname" placeholder='First Name'/>
-                <input type="text" name="lastname" placeholder='Last Name'/>
+              <div class='form-group'>
+                <input type="text" class='form-control' name="firstname" placeholder='First Name'/>
               </div>
-              <div>
-                <input type="text" name="newUsername" placeholder='Username'/>
+              <div class='form-group'>
+                <input type="text" class='form-control' name="lastname" placeholder='Last Name'/>
               </div>
-              <div>
-                  <input type="password" name="newPassword" placeholder='Password'/>
+              <div class='form-group'>
+                <input type="text" class='form-control' name="newUsername" placeholder='Username'/>
               </div>
-              <div>
-                  <input type="password" name="confirmPassword" placeholder='Confirm Password'/>
+              <div class='form-group'>
+                  <input type="password" class='form-control' name="newPassword" placeholder='Password'/>
               </div>
-              <div>
-                  <input type="text" name="email" placeholder='Email:'/>
+              <div class='form-group'>
+                  <input type="password" class='form-control' name="confirmPassword" placeholder='Confirm Password'/>
               </div>
-              <div>
-                  <input type="submit" value="Log In"/>
+              <div class='form-group'>
+                  <input type="text" class='form-control' name="email" placeholder='Email:'/>
+              </div>
+              <div class='form-group'>
+                  <input type="submit" class='form-control btn btn-primary' value="Log In"/>
               </div>
             </form>
           </div>

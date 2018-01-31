@@ -8,6 +8,11 @@ const passport = require('passport');
 router.get('/', (req, res, next)=> {
   res.render('pages/index.ejs', {name: 'Evan', message: req.flash('loginMessage')});
 });
+
+router.get('/error', (req, res, next)=> {
+  res.render('pages/index.ejs', {message: req.flash('signupMessage')});
+});
+
 // define the about route
 router.get('/about', (req, res, next)=> {
   res.send('About page')
@@ -32,9 +37,16 @@ router.post('/newUser', (req, res, next)=> {
   newUser.password = newUser.generateHash(info.confirmPassword);
   
   newUser.save((err, user)=> {
-    console.log(user);
+    if (err) {
+      req.flash('signupMessage', err.message);
+      console.log(err.message);
+      res.redirect("/error");
+    } else {
+      console.log('user:' + user);
+      res.redirect("/login");
+    }
   });
-  res.redirect("/login");
+  
 });
 
 module.exports = router;
