@@ -6,7 +6,7 @@ const passport = require('passport');
 
 // define the home page route
 router.get('/', (req, res, next)=> {
-  res.render('pages/index.ejs', {name: 'Evan', message: req.flash('loginMessage')});
+  res.render('pages/index.ejs', {user: req.user, message: req.flash('loginMessage')});
 });
 
 router.get('/error', (req, res, next)=> {
@@ -43,9 +43,11 @@ router.post('/newUser', (req, res, next)=> {
       res.redirect("/error");
     } else {
       console.log('user:' + user);
-      res.redirect("/login");
+      req.flash('signupMessage', 'New Account Successfully Created!');
+      return user;
     }
   });
+  res.redirect('/');
   
 });
 

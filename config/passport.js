@@ -46,6 +46,7 @@ module.exports = {
     },
     logoutUser: (req, res, next)=> {
         if(req.isAuthenticated()){
+            req.flash('loginMessage', 'User Logged Out Successfully!')
             req.logout();
             next();
         } else {

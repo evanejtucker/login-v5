@@ -7,9 +7,6 @@ body {
     margin-bottom: 10px;
 }
 
-
-
-
 @media screen and (min-width: 768px) {
     #loginBox {
         margin-top: 150px;

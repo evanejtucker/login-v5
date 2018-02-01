@@ -4,9 +4,13 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="/">Welcome</a>
-    <div class='collapse navbar-collapse' id="navbarTogglerDemo01">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class='nav-link' href="/">Login page</li>
+        <div class='collapse navbar-collapse' id="navbarTogglerDemo01">
+        <ul class="nav navbar-nav ml-auto" id='navLinks'>
+            <li class='nav-item'><a class='nav-link' href='/'>Home</a></li>
+            <% if(user) {%>
+            <li class='nav-item'><a class='nav-link' href='/'>Profile</a></li>
+            <li class='nav-item'><a class='nav-link' href='/profile/logout'>Logout</a></li>
+            <% } %>
         </ul>
     </div>
 </nav>
