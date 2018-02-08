@@ -14,6 +14,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const auth = require('./config/passport.js');
+const DB = require('./config/db.js');
 
 // middleware
 app.use(express.static('./app/public'));
@@ -35,7 +36,8 @@ app.use(flash());
 app.set('view engine', 'ejs');
 
 // mongoose
-mongoose.connect('mongodb://localhost/login-v5');
+// mongoose.connect('mongodb://localhost/login-v5');
+mongoose.connect(DB.info);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
