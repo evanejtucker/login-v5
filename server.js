@@ -14,7 +14,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const auth = require('./config/passport.js');
-const DB = require('./config/db.js');
+// const DB = require('./config/db.js');
 
 // middleware
 app.use(express.static('./app/public'));
