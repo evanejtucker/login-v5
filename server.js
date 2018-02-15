@@ -40,15 +40,19 @@ app.set('view engine', 'ejs');
 // mongoose.connect(DB.info, (error)=> {
 //   if(error) throw error;
 // });
-mongoose.connect('mongodb://dbuser1:c0l0rad0@ds047030.mlab.com:47030/login-app', (error)=> {
-  if(error) throw error;
-});
+// mongoose.connect('mongodb://dbuser1:c0l0rad0@ds047030.mlab.com:47030/login-app', (error)=> {
+//   if(error) throw error;
+// });
 
-mongoose.Promise = global.Promise;
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("successfully connected to db");
+// mongoose.Promise = global.Promise;
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   console.log("successfully connected to db");
+// });
+mongoose.connect('mongodb://heroku_tnts8jx8:41bmdvq2275kp295f1pmjk1p3f@ds127928.mlab.com:27928/heroku_tnts8jx8', (err)=> {
+    if(err) throw err;
+    else console.log('successfully connected to db');
 });
 
 // routes
