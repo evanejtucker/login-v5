@@ -37,9 +37,13 @@ app.set('view engine', 'ejs');
 
 // mongoose
 // mongoose.connect('mongodb://localhost/login-v5');
-mongoose.connect(DB.info, (error)=> {
+// mongoose.connect(DB.info, (error)=> {
+//   if(error) throw error;
+// });
+mongoose.connect('mongodb://dbuser1:c0l0rad0@ds047030.mlab.com:47030/login-app', (error)=> {
   if(error) throw error;
 });
+
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
